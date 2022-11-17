@@ -1,0 +1,1 @@
+{'target_arity': 2, 'head_pre': 'length(X,Y)'}
