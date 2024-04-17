@@ -1,5 +1,7 @@
 # README 
 
+DFOL is a software which learns first-order logic progrrmas from larger knowledge graph.
+
 ## Experimantal Environments:
 
 The list shows the explicit software in the DFOL and the corresponding version. The versions in the parameter indicate the actual software versions used in the author's environment.
