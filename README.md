@@ -1,6 +1,6 @@
 # README 
 
-DFOL is a software which learns first-order logic progrrmas from larger knowledge graph.
+DFOL is a software which learns first-order logic progrrmas from larger knowledge graph such as FB15K-Selected and WordNet and smaller inductive logic programming (ILP) datasets. The corresponding academic publications appear in @[IJCAI-22](https://www.ijcai.org/proceedings/2022/0417.pdf) and @[AIJ](https://www.sciencedirect.com/science/article/abs/pii/S0004370224000444). 
 
 ## Experimantal Environments:
 
@@ -224,3 +224,28 @@ python DFOL/model/main.py -d lessthan_pb -p lessthan  -ft 1 -amg 1
     ```shell
     py NLP/model/main.py -d wn18rr  -walk_c 1 -sodche 1 -checktrain 1 (remove '#TEST' tags in '.onl' database in advance)
     ```
+
+## Citing
+```bibtex
+@inproceedings{DBLP:conf/ijcai/GaoICW22,
+  author       = {Kun Gao and
+                  Katsumi Inoue and
+                  Yongzhi Cao and
+                  Hanpin Wang},
+  editor       = {Luc De Raedt},
+  title        = {Learning First-Order Rules with Differentiable Logic Program Semantics},
+  booktitle    = {Proceedings of the Thirty-First International Joint Conference on
+                  Artificial Intelligence, {IJCAI} 2022, Vienna, Austria, 23-29 July
+                  2022},
+  pages        = {3008--3014},
+  year         = {2022},
+}
+@article{GAO2024104108,
+title = {A differentiable first-order rule learner for inductive logic programming},
+journal = {Artificial Intelligence},
+volume = {331},
+pages = {104108},
+year = {2024},
+author = {Kun Gao and Katsumi Inoue and Yongzhi Cao and Hanpin Wang},
+}
+```
