@@ -251,5 +251,3 @@ author = {Kun Gao and Katsumi Inoue and Yongzhi Cao and Hanpin Wang},
 }
 ```
 
-
-![alt text](OIG4.Bt.jpeg)
