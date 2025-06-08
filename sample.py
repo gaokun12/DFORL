@@ -27,7 +27,8 @@ def get_all_relation_entites(data_path, relation_entities_data_path):
                 continue
                 # line = line[:line.index("#")]
             else:
-                line = line[:line.index('\n')]
+                # replace \n
+                line = line.replace('\n','')
             relation = line[:line.index('(')]
             first_entitiy = line[line.index('(') + 1 : line.index(',')]
             second_entity = line[line.index(',') + 1 : line.index(')')] 
@@ -99,7 +100,7 @@ def traverse_from_atom(predicate_name,all_matrix, sub_data_path, predicate_data_
     '''
     @ Description: The second version of sampling data. 
     @ The main idea: Choose an atom, and make the constraints in the atom as the begining, then walk with these two nodes in one step. Then collect the overlapped nodes. 
-    @ ❌ Limitation: The function now only support the variable depth is equal with 1. 
+    @ Limitation: The function now only support the variable depth is equal with 1. 
     '''
     target_pairs = predicate_data_dic[predicate_name]
     if ap_mode == False:
@@ -329,10 +330,10 @@ def get_samle_dataset(data_set_name, predicate_name, number_starting_nodes ,vari
     logging.info("Begin to sample data... The precent of considered predicate is")
     logging.info(number_starting_nodes)
     # read the entity and the relation from the data
-    data_path = os.path.join('deepDFOL',data_set_name,'data',predicate_name+'.onl')
+    data_path = os.path.join('DFORL',data_set_name,'data',predicate_name+'.onl')
     if not os.path.exists(data_path):
-        shutil.copy(os.path.join('deepDFOL',data_set_name,'data',data_set_name+'.nl'), data_path) 
-    relation_entities_data_path = os.path.join('deepDFOL', data_set_name, 'data', data_set_name+'.rnd')
+        shutil.copy(os.path.join('DFORL',data_set_name,'data',data_set_name+'.nl'), data_path) 
+    relation_entities_data_path = os.path.join('DFORL', data_set_name, 'data', data_set_name+'.rnd')
     try: 
         with open(relation_entities_data_path, 'rb') as f:
             (relations , entities, data, predicate_data_dic) = pickle.load(f)
@@ -340,11 +341,11 @@ def get_samle_dataset(data_set_name, predicate_name, number_starting_nodes ,vari
     except FileNotFoundError:
         (relations , entities, data, predicate_data_dic) = get_all_relation_entites(data_path, relation_entities_data_path)
         
-    sub_data_path = os.path.join('deepDFOL', data_set_name, 'data', predicate_name+'.nl')
-    all_matrix_path = os.path.join('deepDFOL', data_set_name, 'data', data_set_name+'.matrix')
-    sampled_predicate_info_path = os.path.join('deepDFOL', data_set_name, 'data','sampled_pred',predicate_name+'.sampled')
-    if not os.path.exists(os.path.join('deepDFOL', data_set_name, 'data','sampled_pred')):
-        os.mkdir(os.path.join('deepDFOL', data_set_name, 'data','sampled_pred'))
+    sub_data_path = os.path.join('DFORL', data_set_name, 'data', predicate_name+'.nl')
+    all_matrix_path = os.path.join('DFORL', data_set_name, 'data', data_set_name+'.matrix')
+    sampled_predicate_info_path = os.path.join('DFORL', data_set_name, 'data','sampled_pred',predicate_name+'.sampled')
+    if not os.path.exists(os.path.join('DFORL', data_set_name, 'data','sampled_pred')):
+        os.mkdir(os.path.join('DFORL', data_set_name, 'data','sampled_pred'))
     try: 
         with open(all_matrix_path, 'rb') as f:
             all_matrix = pickle.load(f)
@@ -361,6 +362,6 @@ def get_samle_dataset(data_set_name, predicate_name, number_starting_nodes ,vari
 
 
 if __name__ == '__main__':
-    data_set_name =  'locatedIn_S3_sub'
+    data_set_name =  'locatedIn_S3'
     predicate_name =  'locatedIn'
     get_samle_dataset(data_set_name, predicate_name,3,2)
