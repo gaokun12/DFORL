@@ -1,7 +1,7 @@
 # README 
 
 
-DFOL is a software which learns first-order logic progrrmas from larger knowledge graph such as FB15K-Selected and WordNet and smaller inductive logic programming (ILP) datasets. The corresponding academic publications appear in @[IJCAI-22](https://www.ijcai.org/proceedings/2022/0417.pdf) and @[AIJ](https://www.sciencedirect.com/science/article/abs/pii/S0004370224000444). 
+DFOL is a software which learns first-order logic progrrmas from larger knowledge graph such as FB15K-Selected and WordNet and smaller inductive logic programming (ILP) datasets. The corresponding academic publications appear in @[AIJ](https://www.sciencedirect.com/science/article/abs/pii/S0004370224000444). 
 
 ## Experimantal Environments:
 
